@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Commands\\GenerateCommand' => $vendorDir . '/fly-apps/dockerfile-laravel/app/Commands/GenerateCommand.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\FakultetController' => $baseDir . '/app/Http/Controllers/FakultetController.php',
     'App\\Http\\Controllers\\StudentController' => $baseDir . '/app/Http/Controllers/StudentController.php',
@@ -14,6 +15,8 @@ return array(
     'App\\Models\\Student' => $baseDir . '/app/Models/Student.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
+    'App\\Services\\File' => $vendorDir . '/fly-apps/dockerfile-laravel/app/Services/File.php',
+    'App\\Services\\Scanner' => $vendorDir . '/fly-apps/dockerfile-laravel/app/Services/Scanner.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Brick\\Math\\BigDecimal' => $vendorDir . '/brick/math/src/BigDecimal.php',
     'Brick\\Math\\BigInteger' => $vendorDir . '/brick/math/src/BigInteger.php',
