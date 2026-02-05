@@ -1,0 +1,24 @@
+mysql://root:hUlIVPpefcHAtTHzeWoWTQlcEmHUpxyY@trolley.proxy.rlwy.net:29356/railway
+
+
+flyctl secrets set APP_URL=https://voznipark-app-working-vjezba1.fly.dev/ -- preskacemo
+
+flyctl secrets set APP_ENV=production
+flyctl secrets set APP_DEBUG=false
+flyctl secrets set DB_CONNECTION=mysql
+flyctl secrets set DB_HOST=trolley.proxy.rlwy.net
+flyctl secrets set DB_PORT=29356
+flyctl secrets set DB_DATABASE=railway
+flyctl secrets set DB_USERNAME=root
+flyctl secrets set DB_PASSWORD=hUlIVPpefcHAtTHzeWoWTQlcEmHUpxyY
+
+
+key app: base64:yQUyuFc4qsF+Wsqj8ikm5jGHXmiitLDcSszwDp9ZrBI=
+
+flyctl secrets set APP_KEY="base64:yQUyuFc4qsF+Wsqj8ikm5jGHXmiitLDcSszwDp9ZrBI="
+
+flyctl machines start 0804e91c625708 -a laravel-studiranje-app-mk1
+flyctl machines start 7810192b996738 -a laravel-studiranje-app-mk1
+
+
+FlyV1 fm2_lJPECAAAAAAAEVrmxBCkpHcx3VZq4a/m9ZjhCXU+wrVodHRwczovL2FwaS5mbHkuaW8vdjGWAJLOABZUtR8Lk7lodHRwczovL2FwaS5mbHkuaW8vYWFhL3YxxDyXG65LUxqs98B0J73HGj3zjfDtn8u1AANxo2cQjkvkYmFg+v+Cm9W3SeHmn3550End0uxUxzy2kT6FtvLETgTCdQBjhNPQAjoNEgj3wVc8OFxrsr+wREjuYWtmVA9AOSpEjifTi/1qLjO+LLtUMimmJj5R1Qnd888DsYq4m3J2mG6vExNe8D03So4hVQ2SlAORgc4A0BQUHwWRgqdidWlsZGVyH6J3Zx8BxCDk/gcexlbF+zajWDCi9lx4P/kJGRhc6HR2jh+iRb4aEQ==,fm2_lJPETgTCdQBjhNPQAjoNEgj3wVc8OFxrsr+wREjuYWtmVA9AOSpEjifTi/1qLjO+LLtUMimmJj5R1Qnd888DsYq4m3J2mG6vExNe8D03So4hVcQQuq/mk7pTO3xzclhIW/6KK8O5aHR0cHM6Ly9hcGkuZmx5LmlvL2FhYS92MZgEks5phPZ7zo8c/JkXzgAVbowKkc4AFW6MDMQQVaTbZkOzvjJpsGBfvfxWpMQg2PjXVHnzGqavSGrTlyUYf3w4bSZZQSCPoMVe0koLw0o=
