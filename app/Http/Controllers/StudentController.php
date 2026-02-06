@@ -21,35 +21,40 @@ class StudentController extends Controller
     //     return view('studenti.index', compact('studenti'));
     // }
     public function index(Request $request)
-{
-    $perPage = 5;
+    {
+        $perPage = 5;
+        $page = max((int)$request->get('page', 1), 1);
+        $offset = ($page - 1) * $perPage;
 
-    // trenutna stranica (default 1)
-    $page = max((int)$request->get('page', 1), 1);
+        $pojam = $request->get('pojam');
 
-    // OFFSET = (page - 1) * 5
-    $offset = ($page - 1) * $perPage;
+        // base query
+        $query = Student::with('fakultet')
+            ->orderBy('prezime');
 
-    // ukupno zapisa
-    $total = Student::whereNotNull('mjesto')->count();
+        // ako postoji pojam → dodaj WHERE
+        if (!empty($pojam)) {
+            $query->where('prezime', 'like', '%' . $pojam . '%');
+        }
 
-    // studenti za trenutnu stranicu
-    $studenti = Student::with('fakultet')
-    //->whereNotNull('mjesto')
-        ->orderBy('prezime')
-        ->limit($perPage)
-        ->offset($offset)
-        ->get();
+        // ukupno zapisa (VAŽNO: s istim filterom)
+        $total = $query->count();
 
-    // ukupan broj stranica
-    $totalPages = (int) ceil($total / $perPage);
+        // zapisi za stranicu
+        $studenti = $query
+            ->limit($perPage)
+            ->offset($offset)
+            ->get();
 
-    return view('studenti.index', compact(
-        'studenti',
-        'page',
-        'totalPages'
-    ));
-}
+        $totalPages = (int) ceil($total / $perPage);
+
+        return view('studenti.index', compact(
+            'studenti',
+            'page',
+            'totalPages',
+            'pojam'
+        ));
+    }
 
     public function create()
     {

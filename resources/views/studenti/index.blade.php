@@ -9,7 +9,13 @@
   <div class="uspjeh">{{ session('uspjeh') }}</div>
 @endif
 
-<a class="btn" href="{{ route('studenti.create') }}">+ Novi student</a>
+<form class="form-box" method="GET" action="{{ route('studenti.index') }}">
+  @csrf
+
+  <label>Pojam</label>
+  <input type="text" name="pojam" value="{{ request('pojam') }}">
+    <button type="submit">Pretraži</button>
+</form>
 
 <p>Trenutno vrijeme: {{ \Carbon\Carbon::now()->format('d.m.Y H:i:s') }}</p>
 <table style="margin-top: 1rem;">
@@ -48,6 +54,7 @@
   @endforeach
 
 </table>
+<a class="btn" href="{{ route('studenti.create') }}">+ Novi student</a>
 @if ($totalPages > 1)
 <div class="pager">
 
