@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - mainvjezba
 jobs:
   deploy:
     name: Deploy app
