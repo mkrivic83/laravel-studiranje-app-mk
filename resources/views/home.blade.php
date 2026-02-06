@@ -20,5 +20,7 @@
 <li>middleware koji blokira prikaz (show/edit) studenata kojima je mjesto null</li>
 
 <li>2 testa (svaki ima 3 metode) i prolaze</li>
+
+<li>implementacija zavisnosti: ako CI prođe, CD će proći, inače NE</li>
 </ul>
 @endsection
