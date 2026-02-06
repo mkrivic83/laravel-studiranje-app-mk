@@ -39,7 +39,7 @@ class StudentMiddlewareTest extends TestCase
             'datum_rod' => '2000-01-01',
             'mbr' => 10,
             'stipendija' => 0,
-            'mjesto' => null,
+            'mjesto' => 'null',
             'fakultetid' => $f->id,
         ]);
 

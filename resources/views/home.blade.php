@@ -22,5 +22,7 @@
 <li>2 testa (svaki ima 3 metode) i prolaze</li>
 
 <li>implementacija zavisnosti: ako CI prođe, CD će proći, inače NE</li>
+
+<li>implementacija zavisnosti: ako CI ne prođe, CD neće proći</li>
 </ul>
 @endsection
