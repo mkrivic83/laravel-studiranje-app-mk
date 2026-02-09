@@ -80,7 +80,7 @@ class StudentMiddlewareTest extends TestCase
             'datum_rod' => '2000-01-01',
             'mbr' => 13,
             'stipendija' => 0,
-            'mjesto' => null, // ⬅️ KLJUČNO
+            'mjesto' => 'null', // ⬅️ KLJUČNO
             'fakultetid' => $f->id,
         ]);
 

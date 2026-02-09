@@ -12,7 +12,7 @@
 <a class="btn" href="{{ route('studenti.create') }}">+ Novi student</a>
 
 <p>Trenutno vrijeme: {{ \Carbon\Carbon::now()->format('d.m.Y H:i:s') }}</p>
-<p>U nastavku popis studenata</p>
+<p>U nastavku popis studenata - dopis pokvarenog testa</p>
 <table style="margin-top: 1rem;">
   <tr>
     <th>ID</th>
