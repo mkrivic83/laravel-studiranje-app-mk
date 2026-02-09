@@ -8,48 +8,36 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
-    //  public function index()
-    // {
-    //     // Ne prikazujemo studente kojima je mjesto null (uz middleware zaštitu za show/edit)
-    //     $studenti = Student::with('fakultet')
-    //         //->whereNotNull('mjesto')
-    //         ->orderBy('prezime')
-    //         ->orderBy('ime')
-    //         //->get();
-    //         ->paginate(5);
-
-    //     return view('studenti.index', compact('studenti'));
-    // }
     public function index(Request $request)
-{
-    $perPage = 5;
+    {
+        $perPage = 5;
 
-    // trenutna stranica (default 1)
-    $page = max((int)$request->get('page', 1), 1);
+        // trenutna stranica (default 1)
+        $page = max((int)$request->get('page', 1), 1);
 
-    // OFFSET = (page - 1) * 5
-    $offset = ($page - 1) * $perPage;
+        // OFFSET = (page - 1) * 5
+        $offset = ($page - 1) * $perPage;
 
-    // ukupno zapisa
-    $total = Student::whereNotNull('mjesto')->count();
+        // ukupno zapisa
+        $total = Student::whereNotNull('mjesto')->count();
 
-    // studenti za trenutnu stranicu
-    $studenti = Student::with('fakultet')
-    //->whereNotNull('mjesto')
-        ->orderBy('prezime')
-        ->limit($perPage)
-        ->offset($offset)
-        ->get();
+        // studenti za trenutnu stranicu
+        $studenti = Student::with('fakultet')
+        //->whereNotNull('mjesto')
+            ->orderBy('prezime')
+            ->limit($perPage)
+            ->offset($offset)
+            ->get();
 
-    // ukupan broj stranica
-    $totalPages = (int) ceil($total / $perPage);
+        // ukupan broj stranica
+        $totalPages = (int) ceil($total / $perPage);
 
-    return view('studenti.index', compact(
-        'studenti',
-        'page',
-        'totalPages'
-    ));
-}
+        return view('studenti.index', compact(
+            'studenti',
+            'page',
+            'totalPages'
+        ));
+    }
 
     public function create()
     {
