@@ -6,6 +6,7 @@
 @section('content')
 
 <p>Ispis nakon uspostave zavisnosti CI CD procesa</p>
+<p>Evo nas na test grani</p>
 <table>
   <tr>
     <th>ID</th>

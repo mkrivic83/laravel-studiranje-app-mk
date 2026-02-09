@@ -2,7 +2,7 @@ name: CI za Studiranje
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main","testgrana"]
   pull_request:
     branches: ["main"]
 
